@@ -4,11 +4,13 @@ RUN apt-get update && apt-get install -y \
     && a2enmod rewrite \
     && docker-php-ext-configure zip \
     && docker-php-ext-configure gd \
-    && printf "\n" | pecl install redis \ 
+    && git clone https://github.com/esminis/php_pecl_rar.git /usr/src/php/ext/rar \
+    && docker-php-ext-configure rar \
+    && printf "\n" | pecl install redis \
     && printf "\n" | pecl install mongodb \
     && printf "\n" | pecl install amqp \
     && printf "\n" | pecl install ssh2-1.2 \
     && printf "\n" | pecl install xdebug \
     && docker-php-ext-enable redis mongodb amqp ssh2 xdebug \
-    && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql pdo_pgsql intl zip soap gd xsl pcntl sockets \
+    && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql pdo_pgsql intl zip soap gd xsl pcntl sockets rar \
     && chmod 777 /var/log
