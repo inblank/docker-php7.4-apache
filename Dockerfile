@@ -8,10 +8,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure rar \
     && printf "\n" | pecl install redis \
     && printf "\n" | pecl install memcached-3.1.5 \
+    && printf "\n" | pecl install memcache-4.0.5.2 \
     && printf "\n" | pecl install mongodb \
     && printf "\n" | pecl install amqp \
     && printf "\n" | pecl install ssh2-1.2 \
     && printf "\n" | pecl install xdebug \
-    && docker-php-ext-enable redis memcached mongodb amqp ssh2 xdebug \
+    && docker-php-ext-enable redis memcached memcache mongodb amqp ssh2 xdebug \
     && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql pdo_pgsql intl zip soap gd xsl pcntl sockets rar \
     && chmod 777 /var/log
