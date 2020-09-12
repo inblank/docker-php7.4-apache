@@ -16,4 +16,5 @@ RUN apt-get update && apt-get install -y \
     && printf "\n" | pecl install xdebug \
     && docker-php-ext-enable redis memcached memcache mongodb amqp ssh2 xdebug \
     && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql pdo_pgsql intl zip soap gd xsl pcntl sockets rar imap tidy \
+    && a2enmod ssl \
     && chmod 777 /var/log
