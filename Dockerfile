@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
         libssh2-1-dev unzip libc-client-dev libkrb5-dev libtidy-dev git subversion \
     && a2enmod rewrite \
     && docker-php-ext-configure zip \
-    && docker-php-ext-configure gd \
+    && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && printf "\n" | pecl install redis \
     && printf "\n" | pecl install memcached-3.1.5 \
